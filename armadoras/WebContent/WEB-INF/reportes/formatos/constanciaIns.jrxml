@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="constanciaIns"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="611"
+		 pageHeight="395"
+		 columnWidth="571"
+		 columnSpacing="0"
+		 leftMargin="20"
+		 rightMargin="20"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="BlankPage"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="numImpresion" isForPrompting="true" class="java.lang.Long">
+		<defaultValueExpression ><![CDATA[$P{numImpresion}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="hql"><![CDATA[select oi.vin as vin, replace(oi.barco,',',chr(13)) as barco from OrdenImpresion as oi where oi.numeroTramite = $P!{numImpresion}]]></queryString>
+
+	<field name="vin" class="java.lang.String"/>
+	<field name="barco" class="java.lang.String"/>
+
+
+		<group  name="codigoBarras" isStartNewPage="true" minHeightToStartNewPage="10" >
+			<groupExpression><![CDATA[$F{vin}]]></groupExpression>
+			<groupHeader>
+			<band height="342"  isSplitAllowed="true" >
+				<elementGroup><!--  Start: 1 !-->
+				<image  scaleImage="RetainShape" vAlign="Top" hAlign="Left" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="367"
+						y="44"
+						width="203"
+						height="62"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="barcode-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch" pen="None" fill="Solid" />
+					<imageExpression class="java.awt.Image"><![CDATA[it.businesslogic.ireport.barcode.BcImage.getBarcodeImage(9,$F{vin},true,false,null,0,100)]]></imageExpression>
+				</image>
+				</elementGroup><!-- End 1 !-->
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="159"
+						y="149"
+						width="250"
+						height="148"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{barco}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="81"
+						y="57"
+						width="200"
+						height="31"
+						key="staticText-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+				<text><![CDATA[Volkswagen de México]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="149"
+						width="68"
+						height="148"
+						key="staticText-2"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+				<text><![CDATA[Pkn
+Versión
+Color
+Fecha
+Origen
+Motor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="117"
+						width="68"
+						height="24"
+						key="staticText-3"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+				<text><![CDATA[Chasis]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="159"
+						y="117"
+						width="250"
+						height="24"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="16" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{vin}]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

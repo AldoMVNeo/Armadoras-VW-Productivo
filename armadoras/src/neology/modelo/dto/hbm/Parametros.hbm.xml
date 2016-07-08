@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.Parametros" table="PARAMETROS" lazy="false">
+        <id name="idParametro" type="long">
+            <column name="ID_PARAMETRO" precision="22" scale="0" />
+            <generator class="increment"/>
+        </id>             
+        <property name="horarioOficina" type="string"> 
+            <column name="HORARIO_OFNA" length="100" not-null="true" />
+        </property>    
+        <property name="horaInicialOficina" type="long">
+            <column name="HORA_INICIAL_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="horaFinalOficina" type="long">
+            <column name="HORA_FINAL_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="dotarMaximoOficina" type="string"> 
+            <column name="DOTAR_MAX_OFNA" length="100" not-null="true"/>
+        </property>    
+        <property name="valorDotarMaximoOficina" type="long">
+            <column name="VALOR_DOTAR_MAX_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="dotarMaximoFueraOficina" type="string"> 
+            <column name="DOTAR_MAX_FUERA_OFNA" length="100" not-null="true"/>
+        </property>    
+        <property name="valorDotarMaximoFueraOficina" type="long">
+            <column name="VALOR_DOTAR_MAXI_FUERA_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="transferirMaximoOficina" type="string"> 
+            <column name="TRANSFERIR_MAX_OFNA" length="100" not-null="true"/>
+        </property>    
+        <property name="valorTransferirMaximoOficina" type="long">
+            <column name="VALOR_TRANSFERIR_MAX_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="transferirMaximoFueraOficina" type="string"> 
+            <column name="TRANSFERIR_MAX_FUERA_OFNA" length="100" not-null="true"/>
+        </property>    
+        <property name="valorTransferirMaximoFueraOficina" type="long">
+            <column name="VALOR_TRANS_MAX_FUERA_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="cambiarMaximoOficina" type="string"> 
+            <column name="CAMBIAR_MAX_OFNA" length="100" not-null="true"/>
+        </property>    
+        <property name="valorCambiarMaximoOficina" type="long">
+            <column name="VALOR_CAMBIAR_MAX_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="cambiarMaximoFueraOficina" type="string"> 
+            <column name="CAMBIAR_MAX_FUERA_OFNA" length="100" not-null="true"/>
+        </property>    
+        <property name="valorCambiarMaximoFueraOficina" type="long">
+            <column name="VALOR_CAMBIAR_MAX_FUERA_OFNA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="tspMinimoBodega" type="string"> 
+            <column name="TSP_MIN_BODEGA" length="100" not-null="true"/>
+        </property>    
+        <property name="valorTspMinimoBodega" type="long">
+            <column name="VALOR_TSP_MIN_BODEGA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="tspMinimoPau" type="string"> 
+            <column name="TSP_MIN_PAU" length="100" not-null="true"/>
+        </property>    
+        <property name="valorMinimoTspPau" type="long">
+            <column name="VALOR_MIN_TSP_PAU" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="reimpresionMaximoDias" type="string"> 
+            <column name="REIMPRESION_MAX_DIAS" length="100" not-null="true"/>
+        </property>    
+        <property name="valorMaximoReimpresionDias" type="long">
+            <column name="VALOR_MAX_REIMPRESION_DIAS" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="reimpresionMaximoTsp" type="string"> 
+            <column name="REIMPRESION_MAX_TSP" length="100" not-null="true"/>
+        </property>    
+        <property name="valorMaximoReimpresionTsp" type="long">
+            <column name="VALOR_MAX_REIMPRESION_TSP" precision="4" scale="0" not-null="true" />
+        </property>        
+    </class>
+</hibernate-mapping>

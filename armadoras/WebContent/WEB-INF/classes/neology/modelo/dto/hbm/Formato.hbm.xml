@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+   Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.Formato" table="FORMATOS" lazy="false"  >
+        <composite-id name="formatoId" class="neology.modelo.dto.id.FormatoId">
+            <key-property name="folio" type="string">
+                <column name="FOLIO" length="20" />
+            </key-property>
+            <key-property name="idTipoFormato" type="long">
+                <column name="ID_TIPO_FORMATO" precision="4" scale="0" />
+            </key-property>
+        </composite-id>        
+        <many-to-one name="entidad" class="neology.modelo.dto.Entidad" fetch="select" not-null="true">
+            <column name="ID_ENTIDAD" length="1" />
+        </many-to-one>       
+        <many-to-one name="tipoFormato" class="neology.modelo.dto.TipoFormato" fetch="select" not-null="true" update="false" insert="false">
+            <column name="ID_TIPO_FORMATO" precision="4" scale="0" />
+        </many-to-one>
+        <many-to-one name="estado" class="neology.modelo.dto.Estado" fetch="select" not-null="true">
+            <column name="ESTADO" length="1" />
+        </many-to-one>     
+       <property name="fechaRegistro" type="org.joda.time.contrib.hibernate.PersistentDateTime" not-null="true">
+            <column name="FECHA_REGISTRO" length="7" />
+        </property>        
+        <property name="observaciones" type="string">
+            <column name="OBSERVACIONES" length="200" />
+        </property>       
+         <many-to-one name="ordenImpresion" class="neology.modelo.dto.OrdenImpresion" fetch="select"
+			lazy="false">
+            <column name="ID_ORDEN_IMPRESION" />
+        </many-to-one> 
+        <many-to-one name="usuarioModifico" class="neology.modelo.dto.Usuario" not-null="true" fetch="select"
+			lazy="false">
+            <column name="ID_USUARIO" />
+        </many-to-one> 		
+    </class>
+</hibernate-mapping>

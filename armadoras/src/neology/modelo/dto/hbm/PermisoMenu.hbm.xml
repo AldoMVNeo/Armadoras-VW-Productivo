@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.PermisoMenu" table="PERMISOS_MENU" lazy="false">
+        <id name="idPermiso" type="long">
+            <column name="ID_PERMISO" precision="4" scale="0" />
+            <generator class="increment" />
+        </id>              
+         <many-to-one name="perfil" class="neology.modelo.dto.Perfil" fetch="select" not-null="true" >
+            <column name="ID_PERFIL" length="1" />
+        </many-to-one>
+         <many-to-one name="menu" class="neology.modelo.dto.Menu" fetch="select" not-null="true" >
+            <column name="ID_MENU" length="1" />
+        </many-to-one>
+        <property name="activo" type="neology.hibernate.tipos.TipoBoolean">
+            <column name="ACTIVO" length="1" not-null="true" />
+        </property> 
+    </class>
+</hibernate-mapping>

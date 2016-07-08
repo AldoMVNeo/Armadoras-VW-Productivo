@@ -1,0 +1,114 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\apache-tomcat-6.0.36\wtpwebapps\WsOrdenamiento\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="WsOrdenamientoPort" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="WsOrdenamientoPortType"/>
+  <ns1:parameter name="className" value="srclon.WsOrdenamiento_wsdl.WsOrdenamientoBindingSkeleton"/>
+  <ns1:parameter name="wsdlServicePort" value="WsOrdenamientoPort"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://srclon/WsOrdenamiento.wsdl"/>
+  <ns1:parameter name="wsdlServiceElement" value="WsOrdenamiento"/>
+  <ns1:parameter name="schemaUnqualified" value="http://srclon/WsOrdenamiento.xsd"/>
+  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns1:srclon_LocalidadesNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_LocalidadesNt" xmlns:ns1="http://srclon/WsOrdenamiento.xsd" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns2:srclon_WsOrdenamientoImpl_buscaServicios_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaServicios_Out" xmlns:ns2="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns3:srclon_UsosNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_UsosNt" xmlns:ns3="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns4:srclon_WsOrdenamientoImpl_buscaMunicipios_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaMunicipios_Out" xmlns:ns4="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns5:srclon_ColoniasNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_ColoniasNt" xmlns:ns5="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns6:srclon_LocalidadTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_LocalidadTyUser" xmlns:ns6="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns7:srclon_UsoTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_UsoTyUser" xmlns:ns7="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns8:srclon_ClasesNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_ClasesNt" xmlns:ns8="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns9:srclon_WsOrdenamientoImpl_buscaCombustibles_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaCombustibles_Out" xmlns:ns9="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns10:srclon_CombustibleVehiculoTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_CombustibleVehiculoTyUser" xmlns:ns10="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns11:srclon_WsOrdenamientoImpl_buscaSublineas_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaSublineas_Out" xmlns:ns11="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns12:srclon_SublineaVehiculoTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_SublineaVehiculoTyUser" xmlns:ns12="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns13:srclon_SublineasVehiculosNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_SublineasVehiculosNt" xmlns:ns13="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns14:srclon_WsOrdenamientoImpl_buscaLineas_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaLineas_Out" xmlns:ns14="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns15:srclon_WsOrdenamientoImpl_buscaLocalidades_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaLocalidades_Out" xmlns:ns15="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns16:srclon_MarcaVehiculoTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_MarcaVehiculoTyUser" xmlns:ns16="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns17:srclon_RecaudadorasNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_RecaudadorasNt" xmlns:ns17="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns18:srclon_WsOrdenamientoImpl_buscaMarcas_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaMarcas_Out" xmlns:ns18="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns19:srclon_ServiciosVehiculosNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_ServiciosVehiculosNt" xmlns:ns19="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns20:srclon_LineasVehiculosNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_LineasVehiculosNt" xmlns:ns20="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns21:srclon_ClaseTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_ClaseTyUser" xmlns:ns21="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns22:srclon_LineaVehiculoTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_LineaVehiculoTyUser" xmlns:ns22="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns23:srclon_RecaudadoraTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_RecaudadoraTyUser" xmlns:ns23="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns24:srclon_ServicioVehiculoTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_ServicioVehiculoTyUser" xmlns:ns24="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns25:srclon_ColoniaTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_ColoniaTyUser" xmlns:ns25="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns26:srclon_TiposVehiculoNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_TiposVehiculoNt" xmlns:ns26="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns27:srclon_CombustiblesVehiculosNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_CombustiblesVehiculosNt" xmlns:ns27="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns28:srclon_WsOrdenamientoImpl_buscaClases_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaClases_Out" xmlns:ns28="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns29:srclon_MunicipiosTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_MunicipiosTyUser" xmlns:ns29="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns30:srclon_WsOrdenamientoImpl_buscaUsos_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaUsos_Out" xmlns:ns30="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns31:srclon_MarcasVehiculosNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_MarcasVehiculosNt" xmlns:ns31="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns32:srclon_TipoVehiculoTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_TipoVehiculoTyUser" xmlns:ns32="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns33:srclon_WsOrdenamientoImpl_buscaColonias_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaColonias_Out" xmlns:ns33="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns34:srclon_MunicipiosNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_MunicipiosNt" xmlns:ns34="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns35:srclon_WsOrdenamientoImpl_buscaRecaudadoras_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaRecaudadoras_Out" xmlns:ns35="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns36:srclon_WsOrdenamientoImpl_buscaTipos_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_buscaTipos_Out" xmlns:ns36="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns37:srclon_AbreviaturaTyUser" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_AbreviaturaTyUser" xmlns:ns37="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns38:srclon_WsOrdenamientoImpl_abreviaDirecciones_Out" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_WsOrdenamientoImpl_abreviaDirecciones_Out" xmlns:ns38="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns39:srclon_AbreviaturasNt" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:srclon.WsOrdenamiento_xsd.Srclon_AbreviaturasNt" xmlns:ns39="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns40:srclon_SublineaVehiculoTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_SublineaVehiculoTyUser[]" qname="ns40:ArrayOfsrclon_SublineaVehiculoTyUser" xmlns:ns40="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns41:srclon_ClaseTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_ClaseTyUser[]" qname="ns41:ArrayOfsrclon_ClaseTyUser" xmlns:ns41="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns42:srclon_LocalidadTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_LocalidadTyUser[]" qname="ns42:ArrayOfsrclon_LocalidadTyUser" xmlns:ns42="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns43:srclon_TipoVehiculoTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_TipoVehiculoTyUser[]" qname="ns43:ArrayOfsrclon_TipoVehiculoTyUser" xmlns:ns43="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns44:srclon_RecaudadoraTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_RecaudadoraTyUser[]" qname="ns44:ArrayOfsrclon_RecaudadoraTyUser" xmlns:ns44="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns45:srclon_ColoniaTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_ColoniaTyUser[]" qname="ns45:ArrayOfsrclon_ColoniaTyUser" xmlns:ns45="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns46:srclon_MarcaVehiculoTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_MarcaVehiculoTyUser[]" qname="ns46:ArrayOfsrclon_MarcaVehiculoTyUser" xmlns:ns46="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns47:srclon_AbreviaturaTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_AbreviaturaTyUser[]" qname="ns47:ArrayOfsrclon_AbreviaturaTyUser" xmlns:ns47="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns48:srclon_ServicioVehiculoTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_ServicioVehiculoTyUser[]" qname="ns48:ArrayOfsrclon_ServicioVehiculoTyUser" xmlns:ns48="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns49:srclon_LineaVehiculoTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_LineaVehiculoTyUser[]" qname="ns49:ArrayOfsrclon_LineaVehiculoTyUser" xmlns:ns49="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns50:srclon_UsoTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_UsoTyUser[]" qname="ns50:ArrayOfsrclon_UsoTyUser" xmlns:ns50="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns51:srclon_CombustibleVehiculoTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_CombustibleVehiculoTyUser[]" qname="ns51:ArrayOfsrclon_CombustibleVehiculoTyUser" xmlns:ns51="http://srclon/WsOrdenamiento.xsd"/>
+  <ns1:arrayMapping innerType="ns52:srclon_MunicipiosTyUser" languageSpecificType="java:srclon.WsOrdenamiento_xsd.Srclon_MunicipiosTyUser[]" qname="ns52:ArrayOfsrclon_MunicipiosTyUser" xmlns:ns52="http://srclon/WsOrdenamiento.xsd"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+   Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.TipoFormato" table="TIPO_FORMATO" lazy="false">
+        <id name="idTipoFormato" type="long">
+            <column name="ID_TIPO_FORMATO" precision="38" scale="0" />
+            <generator class="increment" />
+        </id>        
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="100" />
+        </property>
+        <property name="formatoFolio" type="string">
+            <column name="FORMATO_FOLIO" length="20" />
+        </property>
+        <property name="estatus" type="string">
+            <column name="ESTATUS" length="1" />
+        </property>
+        <set name="formatos" inverse="true" lazy="true">
+            <key>
+                <column name="ID_TIPO_FORMATO" precision="4" scale="0" />
+            </key>
+            <one-to-many class="neology.modelo.dto.Formato" />
+        </set>
+    </class>
+</hibernate-mapping>

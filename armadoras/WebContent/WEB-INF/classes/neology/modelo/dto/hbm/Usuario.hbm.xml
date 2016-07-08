@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+   Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.Usuario" table="USUARIOS"  lazy="false">
+        <id name="idUsuario" type="long">
+            <column name="ID_USUARIO" precision="4" scale="0"/>
+            <generator class="increment"/>
+        </id>       
+         <many-to-one name="entidad" class="neology.modelo.dto.Entidad" fetch="select" not-null="true" >
+            <column name="ID_ENTIDAD" length="1" />
+        </many-to-one>
+         <many-to-one name="perfil" class="neology.modelo.dto.Perfil" fetch="select" not-null="true" >
+            <column name="ID_PERFIL" length="1" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="100"/>
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="APELLIDO_PATERNO" length="50" not-null="true"/>
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="APELLIDO_MATERNO" length="50" not-null="true"/>
+        </property>
+        <property name="fechaAlta" type="org.joda.time.contrib.hibernate.PersistentDateTime">
+            <column name="FECHA_ALTA" length="7"/>
+        </property>
+        <property name="usuario" type="string">
+            <column name="USUARIO" length="10" not-null="true"/>
+        </property>
+        <property name="contrasena" type="string">
+            <column name="CONTRASENA" length="10" not-null="true"/>
+        </property>
+        <property name="estatus" type="integer">
+            <column name="ESTATUS"/>
+        </property>       
+        <set name="formatos" inverse="false" lazy="true">
+            <key>
+                <column name="ID_USUARIO" precision="4" scale="0"
+                        not-null="true"/>
+            </key>
+            <one-to-many class="neology.modelo.dto.Formato"/>
+        </set>
+        <set name="ordenesImpresion" inverse="false" lazy="true" cascade="none">
+            <key>
+                <column name="ID_USUARIO" precision="4" scale="0"/>
+            </key>
+            <one-to-many class="neology.modelo.dto.OrdenImpresion"/>
+        </set>
+        <set name="formatosGrabacion" inverse="false" lazy="true">
+            <key>
+                <column name="ID_USUARIO" precision="4" scale="0"
+                        not-null="true"/>
+            </key>
+            <one-to-many class="neology.modelo.dto.Formato"/>
+        </set>
+    </class>
+</hibernate-mapping>

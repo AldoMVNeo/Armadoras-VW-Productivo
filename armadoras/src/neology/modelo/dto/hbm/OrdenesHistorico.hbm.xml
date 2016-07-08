@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping >
+	<class name="neology.modelo.dto.OrdenesHistorico" table="ORDENES_IMP_HIST" lazy="false">
+		<id name="idOrdenesHistorico" type="long">
+			<column name="ID_ORDENES_HISTORICO" precision="19" scale="0" />
+			<generator class="increment" />
+		</id>
+		<many-to-one name="idUsuarioModifico" class="neology.modelo.dto.Usuario" fetch="select" not-null="true">
+			<column name="ID_USUARIO_MODIFICO" precision="19" scale="0" />
+		</many-to-one> 
+		<property name="idOrdenImpresion" type="long">
+			<column name="ID_ORDEN_IMPRESION" precision="19" scale="0" />
+		</property>  
+		<many-to-one name="idUsuario" class="neology.modelo.dto.Usuario" fetch="select" not-null="true">
+			<column name="ID_USUARIO" precision="19" scale="0" />
+		</many-to-one>	
+		<property name="numeroTramite" type="long">
+			<column name="BLOQUE_IMPRESION" precision="19" scale="0" />
+		</property>   
+		<property name="vin" type="string" not-null="true">
+			<column name="VIN" length="20" />
+		</property>
+		<property name="placa" type="string">
+			<column name="PLACA" length="10" />
+		</property>
+		<property name="barco" type="string">
+			<column name="PROPIETARIO" length="200" />
+		</property>		
+		<property name="marca" type="string">
+			<column name="MARCA" length="30" />
+		</property>
+		<property name="modelo" type="string">
+			<column name="MODELO" length="40" />
+		</property>
+		<property name="annoModelo" type="integer">
+			<column name="ANNO_MODELO" precision="10" scale="0" />
+		</property>
+		<property name="tipo" type="char">
+			<column name="TIPO" length="1" not-null="true"/>
+		</property>		
+		<property name="color" type="string">
+			<column name="COLOR" length="30" />
+		</property>
+		<property name="numeroMotor" type="string">
+			<column name="NUMERO_MOTOR" length="30" />
+		</property>		 
+		<property name="entidad" type="string">
+			<column name="ENTIDAD" length="50" />
+		</property>
+		<property name="fechaRegistro" not-null="true"
+			type="org.joda.time.contrib.hibernate.PersistentDateTime">
+			<column name="FECHA_REGISTRO" length="7" />
+		</property>
+		<property name="folio" type="string">
+			<column name="FOLIO" length="15" />
+		</property>
+		<property name="numeroChip" type="string">
+			<column name="NUMERO_CHIP" length="50" />
+		</property>
+		<many-to-one name="estado" class="neology.modelo.dto.EstadoOI"
+			fetch="select" not-null="true">
+			<column name="ESTADO" length="1" />
+		</many-to-one>
+		<property name="idEntidad" type="long">
+			<column name="ID_ENTIDAD" precision="22" scale="0" />
+		</property>
+		<many-to-one name="tipoFormato"
+			class="neology.modelo.dto.TipoFormato" fetch="select"
+			not-null="true">
+			<column name="ID_TIPO_FORMATO" precision="4" scale="0"
+				not-null="true" />
+		</many-to-one>
+		<property name="numeroGrabaciones" type="integer">
+			<column name="NUMERO_GRABACIONES" precision="4" scale="0" />
+		</property>
+		<property name="fechaImpresion" type="org.joda.time.contrib.hibernate.PersistentDateTime" >
+            <column name="FECHA_IMPRESION" length="7" />
+        </property>
+        <property name="grupo" type="integer" >
+			<column name="GRUPO" length="1" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

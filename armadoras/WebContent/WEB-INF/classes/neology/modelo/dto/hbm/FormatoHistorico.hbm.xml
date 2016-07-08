@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+   Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.FormatoHistorico" table="FORMATOS_HISTORICO" lazy="false" >
+        <id name="idFormatoHistorico" type="long">
+			<column name="ID_FORMATO_HISTORICO" precision="8" scale="0" />
+			<generator class="increment" />
+		</id>
+		<property name="idUsuarioModifico" type="long">
+			<column name="ID_USUARIO_MODIFICO" precision="8" scale="0" />
+		</property>   
+		<property name="fechaHistorico" type="org.joda.time.contrib.hibernate.PersistentDateTime" >
+            <column name="FECHA_HISTORICO" length="7" />
+        </property>        
+		<property name="folio" type="string">
+            <column name="FOLIO" length="20"/>
+        </property>
+        <property name="idTipoFormato" type="integer">
+			<column name="ID_TIPO_FORMATO" precision="4" scale="0" />
+		</property>        
+        <property name="idEntidad" type="long">
+			<column name="ID_ENTIDAD" precision="8" scale="0" />
+		</property>   
+		<property name="idUsuarioActual" type="long">
+			<column name="ID_USUARIO_ACTUAL" precision="8" scale="0" />
+		</property>		
+		<property name="estado" type="string">
+            <column name="ESTADO" length="1"/>
+        </property> 
+        <property name="fechaRegistro" type="org.joda.time.contrib.hibernate.PersistentDateTime" >
+            <column name="FECHA_REGISTRO" length="7" />
+        </property>                
+        <property name="observaciones" type="string">
+            <column name="OBSERVACIONES" length="200" />
+        </property>       
+        <property name="idOrdenImpresion" type="long">
+			<column name="ID_ORDEN_IMPRESION" precision="8" scale="0" />
+		</property>
+    </class>
+</hibernate-mapping>

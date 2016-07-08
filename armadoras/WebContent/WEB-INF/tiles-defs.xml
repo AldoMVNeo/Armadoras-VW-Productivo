@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE tiles-definitions PUBLIC 
+   "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+   "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<!-- ################### Definicion de Componentes Base ###################### -->
+
+	<definition name="plantillaConMenu" path="/neology/paginas/plantillas/plantillaConMenu.jsp">
+		<put name="cabeceraMenu" value="/neology/paginas/plantillas/menu.jsp" />
+		<put name="titulo" value="/neology/paginas/plantillas/titulo.jsp" />
+		<put name="cuerpo" value="/neology/paginas/plantillas/cuerpo.jsp" />
+		<put name="pie" value="/neology/paginas/plantillas/pie.jsp" />
+	</definition>	
+
+	<!-- ################### Plantilla para modulo de Grabacion e Impresion ###################### -->
+	<definition name="plantillaGrabacion" path="/neology/paginas/plantillas/plantillaGrabacion.jsp">
+		<put name="cabeceraMenu" value="/neology/paginas/plantillas/menu.jsp" />
+		<put name="titulo" value="/neology/paginas/plantillas/titulo.jsp" />
+		<put name="cabeceraGrabacion" value="/neology/paginas/emision/grabacion/encabezadoGrabacionChip.jsp" />
+		<put name="cuerpo" value="/neology/paginas/plantillas/cuerpo.jsp" />
+		<put name="pie" value="/neology/paginas/plantillas/pie.jsp" />
+	</definition>
+
+
+	<!-- ################### Bienvenido ###################### -->
+	<definition extends="plantillaConMenu" name="bienvenido">
+		<put name="cuerpo" value="/neology/paginas/bienvenido.jsp" />
+	</definition>
+
+	<!-- ################### Error 500 ###################### -->
+	<definition extends="plantillaConMenu" name="error500">
+		<put name="cuerpo" value="/neology/paginas/sistema/500.jsp" />
+	</definition>
+
+	<!-- ################### Subir Handheld ###################### -->
+	<definition extends="plantillaConMenu" name="subirHandheld">
+		<put name="cuerpo" value="/neology/paginas/handheld/subirHandheldUpload.jsp" />
+	</definition>
+
+	<definition extends="plantillaConMenu" name="exitoSubir">
+		<put name="cuerpo" value="/neology/paginas/handheld/exitoSubirUpload.jsp" />
+	</definition>
+
+	<!-- ################### Dotación de Formatos ###################### -->
+	<definition extends="plantillaConMenu" name="dotacion">
+		<put name="cuerpo" value="/neology/paginas/dotacion/dotacionFormatos.jsp" />
+	</definition>
+
+	<definition extends="plantillaConMenu" name="exitoDotacion">
+		<put name="cuerpo" value="/neology/paginas/dotacion/exitoDotacion.jsp" />
+	</definition>
+
+	<!-- ################### Emisión de Formatos ###################### -->
+	<definition extends="plantillaConMenu" name="emision">
+		<put name="cuerpo" value="/neology/paginas/emision/emisionFormatos.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="listaTramites">
+		<put name="cuerpo" value="/neology/paginas/emision/listaTramites.jsp" />
+	</definition>
+
+	<!-- ################### Cambiar Estado de Formatos ###################### -->
+	<definition extends="plantillaConMenu" name="cambiarEstado">
+		<put name="cuerpo" value="/neology/paginas/cambiarEstado/cambiarEstado.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="exitoCambiarEstado">
+		<put name="cuerpo" value="/neology/paginas/cambiarEstado/exitoCambiarEstado.jsp" />
+	</definition>
+
+
+	<!-- ################### Trasferir Formatos a Otra Oficina###################### -->
+	<definition extends="plantillaConMenu" name="transferirFormatos">
+		<put name="cuerpo" value="/neology/paginas/transferirFormatos/transferirFormatos.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="exitoTransferirFormatos">
+		<put name="cuerpo" value="/neology/paginas/transferirFormatos/exitoTransferirFormatos.jsp" />
+	</definition>
+
+
+	<!-- ################### Modulos ###################### -->
+	<definition extends="plantillaConMenu" name="parametros">
+		<put name="cuerpo" value="/neology/paginas/parametros/parametros.jsp" />
+	</definition>
+
+	<!-- ################### Catalogo Usuarios ###################### -->
+	<definition extends="plantillaConMenu" name="catalogoUsuarioNuevo">
+		<put name="cuerpo" value="/neology/paginas/catalogos/usuarios/catUsuarioNuevo.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoUsuario">
+		<put name="cuerpo" value="/neology/paginas/catalogos/usuarios/catUsuario.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoUsuarioModificar">
+		<put name="cuerpo" value="/neology/paginas/catalogos/usuarios/catUsuarioModificar.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoUsuarioMensaje">
+		<put name="cuerpo" value="/neology/paginas/catalogos/usuarios/catUsuarioMensaje.jsp" />
+	</definition>
+
+	<!-- ################### Catalogo Entidades ###################### -->
+	<definition extends="plantillaConMenu" name="catalogoEntidadNueva">
+		<put name="cuerpo" value="/neology/paginas/catalogos/entidades/catEntidadNuevo.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoEntidad">
+		<put name="cuerpo" value="/neology/paginas/catalogos/entidades/catEntidad.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoEntidadModificar">
+		<put name="cuerpo" value="/neology/paginas/catalogos/entidades/catEntidadModificar.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoEntidadMensaje">
+		<put name="cuerpo" value="/neology/paginas/catalogos/entidades/catEntidadMensaje.jsp" />
+	</definition>
+
+	<!-- ################### Catalogo Tipo Formato ###################### -->
+	<definition extends="plantillaConMenu" name="catalogoTFNuevo">
+		<put name="cuerpo" value="/neology/paginas/catalogos/tipoFormato/catTipoFormatoNuevo.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoTF">
+		<put name="cuerpo" value="/neology/paginas/catalogos/tipoFormato/catTipoFormato.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoTFModificar">
+		<put name="cuerpo" value="/neology/paginas/catalogos/tipoFormato/catTipoFormatoModificar.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="catalogoTFMensaje">
+		<put name="cuerpo" value="/neology/paginas/catalogos/tipoFormato/catTipoFormatoMensaje.jsp" />
+	</definition>
+
+
+	<!-- ################### Grabacion e Impresion ###################### -->
+	<definition extends="plantillaConMenu" name="grabacionChip">
+		<put name="cuerpo" value="/neology/paginas/emision/grabacion/grabacionChipRepuve.jsp" />
+	</definition>
+	<definition extends="plantillaGrabacion" name="grabacion">
+		<put name="cuerpo" value="/neology/paginas/emision/grabacion/grabacionChip.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="impresion">
+		<put name="cuerpo" value="/neology/paginas/impresion/listImpresion.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="impresionPDF">
+		<put name="cuerpo" value="/neology/paginas/impresion/impresionPDF.jsp" />
+	</definition>
+
+
+	<!-- ################### Re-Impresion ###################### -->
+
+	<definition extends="plantillaConMenu" name="reImpresion">
+		<put name="cuerpo" value="/neology/paginas/reImpresion/cargaImpresos.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="cargarRegistros">
+		<put name="cuerpo" value="/neology/paginas/reImpresion/listReimpresion.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="reimpresionPDF">
+		<put name="cuerpo" value="/neology/paginas/reImpresion/reImpresionPDF.jsp" />
+	</definition>
+	
+	<!-- ################### Reportes###################### -->
+
+	<definition extends="plantillaConMenu" name="inicioReporteRepuve">
+		<put name="cuerpo" value="/neology/paginas/reportes/inicioReportesRepuve.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="inicioReporteConstancias">
+		<put name="cuerpo" value="/neology/paginas/reportes/reporteConstanciasInscripcion.jsp" />
+	</definition>
+	
+	<!-- ################### Busqueda ###################### -->
+
+	<definition extends="plantillaConMenu" name="busquedaFormato">
+		<put name="cuerpo" value="/neology/paginas/busqueda/busquedaFormato.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="inicioBuscar">
+		<put name="cuerpo" value="/neology/paginas/busqueda/buscarChasis.jsp" />
+	</definition>
+	
+	<!-- ################### Perfiles ###################### -->
+	<definition extends="plantillaConMenu" name="permisosUsuario">
+		<put name="cuerpo"
+			value="/neology/paginas/catalogos/permisos/permisosUsuario.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="modificarPermisosUsuario">
+		<put name="cuerpo"
+			value="/neology/paginas/catalogos/permisos/modificarPermisosUsuario.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="exitoModPermisosUsuario">
+		<put name="cuerpo"
+			value="/neology/paginas/catalogos/permisos/mensajePermisosUsuario.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="altaPerfil">
+		<put name="cuerpo" value="/neology/paginas/catalogos/permisos/altaPerfil.jsp" />
+	</definition>
+	
+	<!-- ################### Sistema ###################### -->
+	<definition extends="plantillaConMenu" name="cambiarNombreUsuario">
+		<put name="cuerpo" value="/neology/paginas/sistema/cambiarNombreUsuario.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="mensajeCambiarUsuario">
+		<put name="cuerpo" value="/neology/paginas/sistema/mensajeCambiarUsuario.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="configuracionHistorico">
+		<put name="cuerpo" value="/neology/paginas/sistema/configuracionHistorico/configuracionHistorico.jsp" />
+	</definition>
+	<definition extends="plantillaConMenu" name="mensajeConfiguracionHistorico">
+		<put name="cuerpo" value="/neology/paginas/sistema/configuracionHistorico/mensajeConfiguracionHistorico.jsp" />
+	</definition>
+	
+</tiles-definitions>

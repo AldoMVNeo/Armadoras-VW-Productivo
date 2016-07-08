@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.ConfigJob" table="CONFIGJOB" lazy="false">
+        <id name="idParametro" type="long">
+            <column name="ID_PARAMETRO" precision="38" scale="0" />
+            <generator class="increment" />
+        </id>        
+        <property name="noDias" type="long">
+            <column name="NO_DIAS" length="38" not-null="true" />
+        </property>            
+         <many-to-one name="usuario" class="neology.modelo.dto.Usuario" not-null="true" fetch="select"
+			lazy="false">
+            <column name="ID_USUARIO" />
+        </many-to-one> 		  
+		<property name="horaConfig" type="string">
+			<column name="HORACONFIG" precision="20" scale="0" />
+		</property>  
+		<property name="minutosConfig" type="string">
+			<column name="MINUTOSCONFIG" precision="20" scale="0" />
+		</property>
+		<property name="fechaConfig" type="date">
+			<column name="FECHACONFIG" precision="20" scale="0" />
+		</property>
+		<property name="estatus" type="long">
+			<column name="ESTATUS" precision="1" scale="0" />
+		</property>
+    </class>
+</hibernate-mapping>

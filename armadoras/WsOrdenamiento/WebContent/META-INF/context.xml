@@ -1,0 +1,16 @@
+<Context path="/clsVehicleData">
+         
+         
+         <!-- DataSource Resource -->
+<!--         <Resource name="jdbc/TestDBNigeriaPadronSQLServer" auth="Container" type="javax.sql.DataSource"-->
+<!--         	maxActive="15" maxIdle="30" maxWait="10000"-->
+<!--         	username="nig" password="nig01" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
+<!--         	url="jdbc:sqlserver://148.245.107.247;databaseName=dbPadronNigeria" validationQuery="select 1" />-->
+<!--         -->
+         	<!-- DataSource Resource -->
+         <Resource name="jdbc/TestDBNigeriaPadron" auth="Container" type="javax.sql.DataSource"
+         	maxActive="15" maxIdle="30" maxWait="10000"
+         	username="desarrollo" password="desarrollo01" driverClassName="com.mysql.jdbc.Driver"
+         	url="jdbc:mysql://148.245.107.245:3306/dbCatalogosVehiculos" validationQuery="select 1" />
+         	
+</Context>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping >
+	<class name="neology.modelo.dto.CambioEstado" table="CAMBIO_ESTADO" lazy="false">
+		<id name="idCambioEstado" type="long">
+			<column name="ID_CAMBIO_ESTADO" precision="4" scale="0" />
+			<generator class="increment" />
+		</id>
+		<property name="de" type="string">
+			<column name="DE" length="50" not-null="true" />
+		</property>
+		<property name="a" type="string">
+			<column name="A" length="50" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

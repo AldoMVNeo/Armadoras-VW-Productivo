@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.Perfil" table="PERFILES" lazy="false">
+        <id name="idPerfil" type="long">
+            <column name="ID_PERFIL" precision="4" scale="0" />
+            <generator class="increment" />
+        </id>        
+        <property name="nombrePerfil" type="string">
+            <column name="NOMBRE_PERFIL" length="50" not-null="true" />
+        </property>
+        <set name="permisosMenus" inverse="false" cascade="save-update" lazy="false" order-by="ID_MENU asc">
+            <key>
+                <column name="ID_PERFIL"  not-null="true" />
+            </key>
+            <one-to-many class="neology.modelo.dto.PermisoMenu" />
+        </set>
+        <set name="usuarios" inverse="false" lazy="true" cascade="save-update">
+            <key>
+                <column name="ID_PERFIL"  not-null="true"/>
+            </key>
+            <one-to-many class="neology.modelo.dto.Usuario"/>
+        </set>
+        <property name="estatus" type="string">
+            <column name="ESTATUS" length="1" />
+        </property>    
+    </class>
+</hibernate-mapping>

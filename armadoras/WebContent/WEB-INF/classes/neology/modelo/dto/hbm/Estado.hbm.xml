@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.Estado" table="ESTADOS_TP" lazy="false" >
+        <id name="estado" type="string">
+            <column name="ESTADO" length="1" />
+            <generator class="increment" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" not-null="true" />
+        </property>                  
+        <set name="formatos" inverse="true" lazy="true">
+            <key>
+                <column name="ESTADO" length="1" />
+            </key>
+            <one-to-many class="neology.modelo.dto.Formato" />
+        </set>        
+    </class>    
+</hibernate-mapping>

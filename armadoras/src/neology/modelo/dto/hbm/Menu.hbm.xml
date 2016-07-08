@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapeo del archivo generado por Neology
+-->
+<hibernate-mapping>
+    <class name="neology.modelo.dto.Menu" table="MENUS" lazy="false">
+        <id name="idMenu" type="long">
+            <column name="ID_MENU" precision="4" scale="0" />
+            <generator class="increment" />
+        </id>
+       <property name="nombreMenu" type="string">
+            <column name="NOMBRE_MENU" length="200" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="URL" length="200"  />
+        </property>
+        <property name="idPadre" type="long">
+            <column name="ID_PADRE" precision="4" not-null="true" />
+        </property>
+        <property name="icono" type="string">
+            <column name="icono" length="50"  />
+        </property>
+    </class>
+</hibernate-mapping>

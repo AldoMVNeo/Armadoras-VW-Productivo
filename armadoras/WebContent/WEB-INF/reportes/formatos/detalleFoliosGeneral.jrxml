@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detalleFoliosGeneral" pageWidth="1900" pageHeight="792" columnWidth="1844" leftMargin="28" rightMargin="28" topMargin="42" bottomMargin="42" whenResourceMissingType="Empty" uuid="f64a8d90-ccab-49c8-af34-dde217f79bcf">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="3.1384283767210626"/>
+	<property name="ireport.x" value="7935"/>
+	<property name="ireport.y" value="108"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="strTituloEstado" class="java.lang.String"/>
+	<parameter name="strTituloFiltros" class="java.lang.String"/>
+	<parameter name="strTituloFechas" class="java.lang.String"/>
+	<parameter name="strColumn1" class="java.lang.String"/>
+	<parameter name="strColumn2" class="java.lang.String"/>
+	<parameter name="strColumn3" class="java.lang.String"/>
+	<parameter name="strColumn4" class="java.lang.String"/>
+	<parameter name="strColumn5" class="java.lang.String"/>
+	<parameter name="strColumn6" class="java.lang.String"/>
+	<parameter name="strColumn7" class="java.lang.String"/>
+	<parameter name="strColumn8" class="java.lang.String"/>
+	<parameter name="strColumn9" class="java.lang.String"/>
+	<parameter name="strColumn10" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="strColumn1" class="java.lang.String"/>
+	<field name="strColumn2" class="java.lang.String"/>
+	<field name="strColumn3" class="java.lang.String"/>
+	<field name="strColumn4" class="java.lang.String"/>
+	<field name="strColumn5" class="java.lang.String"/>
+	<field name="strColumn6" class="java.lang.String"/>
+	<field name="strColumn7" class="java.lang.String"/>
+	<field name="strColumn8" class="java.lang.String"/>
+	<field name="strColumn9" class="java.lang.String"/>
+	<field name="strColumn10" class="java.lang.String"/>
+	<title>
+		<band height="122">
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="26" width="2800" height="20" uuid="492fbcf9-72af-4053-8302-5204ef73006d"/>
+				<textElement>
+					<font fontName="Consolas" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strTituloFiltros}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="51" width="2800" height="20" uuid="f2f85691-2663-493d-8f44-3daff4327af8"/>
+				<textElement>
+					<font fontName="Consolas" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strTituloFechas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="82" width="280" height="15" uuid="a75ecd4a-5959-4ae6-ae9b-37c66292ae94"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="280" y="82" width="280" height="15" uuid="70dc0f8a-7690-41bd-9552-4495bad95b5f"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="560" y="82" width="280" height="15" uuid="9a432498-3b7d-4123-98a4-bb26fd95c24b"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="840" y="82" width="280" height="15" uuid="e517fcdb-c63c-4703-8785-1cce3ba445f0"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1120" y="82" width="280" height="15" uuid="859df328-c6db-46a8-9c3c-b456b7368806"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1400" y="82" width="280" height="15" uuid="5b0902b2-ae71-4629-b550-ee9aa5d664b7"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1680" y="82" width="280" height="15" uuid="422170e6-7b06-45c9-906a-45b6ca9c4014"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1960" y="82" width="280" height="15" uuid="4aceb9b4-a2a2-4c08-9dc4-33bf470b1c6b"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn8}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="2800" height="20" uuid="3510af7b-091f-40ab-b6dc-1fe8286f75a5"/>
+				<textElement>
+					<font fontName="Consolas" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Constancias de Inscripción]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="2240" y="82" width="280" height="15" uuid="9eea4aa8-818e-46bd-978d-0796eff0f87b"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="2520" y="82" width="280" height="15" uuid="ad38762e-69f2-470b-9070-2bcfaaa9a07e"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strColumn10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="708" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="3" width="280" height="20" uuid="05db7e06-ccce-44ae-b7c1-ca3d23154233"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="280" y="3" width="280" height="20" uuid="7d4b39e0-b182-457a-8f94-cfaabd8ac38f"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="560" y="3" width="280" height="20" uuid="5ad4cf26-0dfa-4e07-8114-0175b21c7911"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="840" y="3" width="280" height="20" uuid="71e8245b-7fce-4bc1-934d-885b368a4d11"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1120" y="3" width="280" height="20" uuid="dd58f79c-b6ca-4683-b073-9a13c218c699"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1400" y="3" width="280" height="20" uuid="3012374e-df5c-4233-a64d-6435f044834f"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1680" y="3" width="280" height="20" uuid="30523a36-e71b-45c0-80f6-bdfe4bc56820"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1960" y="3" width="280" height="20" uuid="31dd98bd-292c-403e-b0ab-c703bbd30e98"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="2240" y="3" width="280" height="20" uuid="1e021830-f418-4e31-90dc-fd36dcc6a470"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="2520" y="3" width="280" height="20" uuid="a19fc4b3-9ac0-49b2-ad8f-018cf6a73fbd"/>
+				<textElement>
+					<font fontName="Consolas" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strColumn10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

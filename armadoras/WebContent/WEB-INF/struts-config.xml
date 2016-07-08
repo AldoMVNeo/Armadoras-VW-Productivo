@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- ===================================== FormBeans -->
+	<form-beans>
+		<form-bean name="dotacionForm"
+			type="neology.vc.forms.dotacion.DotacionForm" />
+		<form-bean name="subirHandheldForm"
+			type="neology.vc.forms.handheld.SubirHandheldForm" />
+		<form-bean name="emisionForm"
+			type="neology.vc.forms.emision.EmisionFormatosForm" />
+		<form-bean name="listaTramitesForm"
+			type="neology.vc.forms.emision.ListaTramitesForm" />
+		<form-bean name="cambiarEstadoForm"
+			type="neology.vc.forms.cambiarEstado.CambiarEstadoForm" />
+		<form-bean name="transferirFormatosForm"
+			type="neology.vc.forms.transferirFormatos.TransferirFormatosForm" />
+		<form-bean name="parametrosForm"
+			type="neology.vc.forms.parametros.ParametrosForm" />
+		<form-bean name="impresionForm"
+			type="neology.vc.forms.emision.impresion.ImpresionForm" />
+		<form-bean name="tipoFormatoForm"
+			type="neology.vc.forms.catalogos.tipoFormato.TipoFormatoForm" />
+		<form-bean name="usuariosForm"
+			type="neology.vc.forms.catalogos.usuarios.UsuariosForm" />
+		<form-bean name="entidadesForm"
+			type="neology.vc.forms.catalogos.entidades.EntidadesForm" />
+		<form-bean name="impresionesForm"
+			type="neology.vc.forms.impresion.ImpresionesForm" />
+		<form-bean name="reImpresionesForm"
+			type="neology.vc.forms.reImpresion.ReImpresionesForm" />
+		<form-bean name="loginForm"
+			type="neology.vc.forms.login.LoginForm" />
+		<form-bean name="reportesForm"
+			type="neology.vc.forms.reportes.ReportesRepuveForm" />
+		<form-bean name="reporteConstanciasForm"
+			type="neology.vc.forms.reportes.ReporteConstanciasIForm" />
+		<form-bean name="busquedaFormatoForm"
+			type="neology.vc.forms.busqueda.BusquedaFormatoForm" />
+		<form-bean name="busquedaNivForm"
+			type="neology.vc.forms.busqueda.BusquedaNivForm" />
+       <form-bean name="GenerarPermisosUsuarioForm"
+			type="neology.vc.forms.permisos.GenerarPermisosDeUsuarioForm" />
+	   <form-bean name="cambiarNombreUsuarioForm"
+			type="neology.vc.forms.sistema.CambiarNombreUsuarioForm" />
+	  <form-bean name="configuracionHistoricoForm"
+			type="neology.vc.forms.sistema.ConfiguracionHistoricoForm" />
+
+	</form-beans>
+	<!-- ===================================== Excepciones-->
+	<global-exceptions>
+		<exception key="errors.general.sistema"
+			type="javax.servlet.ServletException" path="error500"
+			handler="neology.vc.actions.excepciones.ServletExceptionHandler" />
+		<exception key="errors.general.sistema"
+			type="java.lang.Exception" path="error500"
+			handler="neology.vc.actions.excepciones.ServletExceptionHandler" />
+		<exception key="errors.general.sistema"
+			type="java.lang.RuntimeException" path="error500"
+			handler="neology.vc.actions.excepciones.ServletExceptionHandler" />
+		<exception key="errors.general.sistema"
+			type="java.lang.NullPointerException" path="error500"
+			handler="neology.vc.actions.excepciones.ServletExceptionHandler" />
+		<exception key="errors.general.sistema"
+			type="java.lang.NumberFormatException" path="error500"
+			handler="neology.vc.actions.excepciones.ServletExceptionHandler" />
+	</global-exceptions>
+
+
+	<!-- ===================================== Global forwards-->
+	<global-forwards>
+		<forward name="inicioGrabacion"
+			path="/emisionFormatos.do?do=inicio" />
+	</global-forwards>
+
+
+	<!-- ===================================== Actions -->
+	<action-mappings>
+		<!-- Login -->
+		<action path="/login"
+			type="neology.vc.actions.login.LoginAction" name="loginForm"
+			scope="request" validate="true" input="/login.jsp">
+			<forward name="cargar" path="bienvenido" />
+
+		</action>
+		<action path="/cerrarSesion"
+			type="neology.vc.actions.login.CerrarSesionAction" scope="request">
+			<forward name="cerrarSesion" path="/login.jsp" />
+		</action>
+
+
+
+		<!-- Dotar Formatos -->
+		<action path="/dotacion"
+			type="neology.vc.actions.dotacion.DotacionAction" name="dotacionForm"
+			scope="session" parameter="do" validate="true" input="dotacion">
+			<forward name="cargar" path="dotacion" />
+			<forward name="exito" path="exitoDotacion" />
+
+		</action>
+
+		<!-- Emision de Formatos -->
+		<action path="/emisionFormatos"
+			type="neology.vc.actions.emision.EmisionFormatosAction"
+			name="emisionForm" parameter="do" scope="session"
+			input="/neology/paginas/emision/emisionFormatos.jsp">
+			<forward name="cargar" path="impresion" />
+			<forward name="imprimirCB"
+				path="/neology/paginas/emision/impresion/imprimirCB.jsp" />
+			<forward name="grabar" path="grabacion" />
+		</action>
+		<action path="/listaTramites"
+			type="neology.vc.actions.emision.ListaTramitesAction"
+			name="listaTramitesForm" scope="request">
+			<forward name="cargar" path="listaTramites" />
+		</action>
+		<action path="/grabacionChip"
+			type="neology.vc.actions.emision.grabacion.GrabacionChipAction"
+			parameter="do" name="emisionForm" scope="session">
+			<forward name="grabar" path="grabacionChip" />
+			<forward name="imprimir" path="/impresionFormatos.do" />
+			<forward name="exito"
+				path="/neology/paginas/emision/exitoImpresion.jsp" />
+		</action>
+		<action path="/impresionFormatos"
+			type="neology.vc.actions.emision.impresion.ImpresionFormatosAction">
+			<forward name="generarPDF" path="/generadorPDF.do" />
+
+
+		</action>
+		<action path="/generadorPDF"
+			type="neology.vc.actions.reportes.GeneradorPDFAction" />
+
+
+		<!-- Cambiar Estado de Formatos -->
+		<action path="/cambiarEstado"
+			type="neology.vc.actions.cambiarEstado.CambiarEstadoAction"
+			name="cambiarEstadoForm" parameter="do" scope="session"
+			validate="true" input="cambiarEstado">
+			<forward name="cargar" path="cambiarEstado" />
+			<forward name="exito" path="exitoCambiarEstado" />
+		</action>
+
+
+		<!-- Transferencia de Formatos -->
+		<action path="/transferirFormatos"
+			type="neology.vc.actions.transferirFormatos.TransferirFormatosAction"
+			name="transferirFormatosForm" parameter="do" scope="session"
+			validate="true" input="transferirFormatos">
+			<forward name="cargar" path="transferirFormatos" />
+			<forward name="exito" path="exitoTransferirFormatos" />
+		</action>
+
+		<!-- Catalogo Tipo Formato -->
+		<action path="/tipoFormato"
+			type="neology.vc.actions.catalogos.tipoFormato.TipoFormatoAction"
+			name="tipoFormatoForm" parameter="do" scope="session" validate="true"
+			input="catalogoTFNuevo">
+			<forward name="cargar" path="catalogoTF" />
+			<forward name="nuevo" path="catalogoTFNuevo" />
+			<forward name="modificar" path="catalogoTFModificar" />
+			<forward name="mensaje" path="catalogoTFMensaje" />
+		</action>
+
+		<action path="/tipoFormato2"
+			type="neology.vc.actions.catalogos.tipoFormato.TipoFormatoAction"
+			name="tipoFormatoForm" parameter="do" scope="session" validate="true"
+			input="catalogoTFModificar">
+			<forward name="modificar" path="catalogoTFModificar" />
+			<forward name="mensaje" path="catalogoTFMensaje" />
+		</action>
+
+
+		<!-- Catalogo Usuarios -->
+		<action path="/usuarios"
+			type="neology.vc.actions.catalogos.usuarios.UsuariosAction"
+			name="usuariosForm" parameter="do" scope="session" validate="true"
+			input="catalogoUsuarioNuevo">
+			<forward name="cargar" path="catalogoUsuario" />
+			<forward name="nuevo" path="catalogoUsuarioNuevo" />
+			<forward name="modificar" path="catalogoUsuarioModificar" />
+			<forward name="mensaje" path="catalogoUsuarioMensaje" />
+		</action>
+
+		<action path="/usuarios2"
+			type="neology.vc.actions.catalogos.usuarios.UsuariosAction"
+			name="usuariosForm" parameter="do" scope="session" validate="true"
+			input="catalogoUsuarioModificar">
+			<forward name="modificar" path="catalogoUsuarioModificar" />
+			<forward name="mensaje" path="catalogoUsuarioMensaje" />
+		</action>
+
+		<action path="/entidades"
+			type="neology.vc.actions.catalogos.entidades.EntidadesAction"
+			name="entidadesForm" parameter="do" scope="session" validate="true"
+			input="catalogoEntidadNueva">
+			<forward name="cargar" path="catalogoEntidad" />
+			<forward name="nuevo" path="catalogoEntidadNueva" />
+			<forward name="modificar" path="catalogoEntidadModificar" />
+			<forward name="mensaje" path="catalogoEntidadMensaje" />
+		</action>
+
+		<action path="/entidades2"
+			type="neology.vc.actions.catalogos.entidades.EntidadesAction"
+			name="entidadesForm" parameter="do" scope="session" validate="true"
+			input="catalogoEntidadModificar">
+			<forward name="modificar" path="catalogoEntidadModificar" />
+			<forward name="mensaje" path="catalogoEntidadMensaje" />
+		</action>
+
+
+		<!--   HandHeld   -->
+		<action path="/subirHandheld"
+			type="neology.vc.actions.handheld.SubirHandheldAction"
+			name="subirHandheldForm" scope="request" parameter="do"
+			validate="true" input="subirHandheld">
+			<forward name="subir" path="subirHandheld" />
+			<forward name="exito" path="exitoSubir" />
+		</action>
+		<action path="/generarUsuarios"
+			type="neology.vc.actions.handheld.usuarios.GenerarUsuariosAction"
+			scope="request">
+			<forward name="error" path="bienvenido" />
+		</action>
+
+		<!-- Configuracion de Parametros -->
+		<action path="/parametros"
+			type="neology.vc.actions.parametros.ParametrosAction"
+			name="parametrosForm" parameter="do" scope="session" validate="true"
+			input="/neology/paginas/parametros/parametros.jsp">
+			<forward name="cargar"
+				path="/neology/paginas/parametros/parametros.jsp" />
+		</action>
+
+
+		<action path="/impresiones"
+			type="neology.vc.actions.impresion.ImpresionFormatosAction"
+			name="impresionesForm" parameter="do" scope="session" validate="true"
+			input="impresion">
+			<forward name="listar" path="impresion" />
+			<forward name="mostrar" path="impresionPDF" />
+			<forward name="generarPDF" path="/generadorPDF.do" />
+			<forward name="todos" path="/impresiones.do?do=listar" />
+		</action>
+
+		<action path="/reimpresion"
+			type="neology.vc.actions.reImpresion.ReImpresionFormatosAction"
+			name="reImpresionesForm" parameter="do" scope="session"
+			validate="true" input="cargar">
+			<forward name="cargar" path="reImpresion" />
+			<forward name="mostrar" path="cargarRegistros" />
+			<forward name="imprimir" path="reimpresionPDF" />
+			<forward name="generarPDF" path="/generadorPDF.do" />
+			<forward name="todos" path="/reimpresion.do?do=cargar" />
+		</action>
+
+		<action path="/reportesRepuve"
+			type="neology.vc.actions.reportes.ReportesRepuveAction"
+			name="reportesForm" parameter="do" scope="session" validate="true"
+			input="inicioReporteRepuve">
+			<forward name="inicio" path="inicioReporteRepuve" />
+		</action>
+		<action path="/reporteCInscripcion"
+			type="neology.vc.actions.reportes.ReporteConstanciasIAction"
+			name="reporteConstanciasForm" parameter="do" scope="session"
+			validate="true" input="inicioReporteConstancias">
+			<forward name="inicio" path="inicioReporteConstancias" />
+			<forward name="totales" path="inicioReporteConstancias" />
+		</action>
+
+		<!--  Busqueda   -->
+		<action path="/busquedaFormato"
+			type="neology.vc.actions.busqueda.BusquedaFormatoAction"
+			parameter="do" name="busquedaFormatoForm" scope="request">
+			<forward name="buscar" path="busquedaFormato" />
+		</action>
+		<action path="/busquedaNiv"
+			type="neology.vc.actions.busqueda.BusquedaNivAction"
+			name="busquedaNivForm" parameter="do" scope="request">
+			<forward name="inicio" path="inicioBuscar" />
+			<forward name="resultado" path="inicioBuscar" />
+		</action>
+		
+		<!-- =====================================Perfiles -->
+		<action path="/permisosUsuario" scope="session"
+			type="neology.vc.actions.permisos.GestionPermisosDeUsuarioAction"
+			parameter="do" name="GenerarPermisosUsuarioForm" validate="true"
+			input="modificarPermisosUsuario">
+			<forward name="cargarPerfiles" path="permisosUsuario" />
+			<forward name="modificarPerfil" path="modificarPermisosUsuario" />
+			<forward name="inicioAlta" path="altaPerfil" />
+			<forward name="exitoModificacion" path="exitoModPermisosUsuario" />
+			<forward name="cancelar" path="/permisosUsuario.do?do=inicio" />
+		</action>
+		<action path="/altaPerfilPermisos" scope="session"
+			type="neology.vc.actions.permisos.GestionPermisosDeUsuarioAction"
+			parameter="do" name="GenerarPermisosUsuarioForm" validate="true"
+			input="altaPerfil">
+			<forward name="inicioAlta" path="altaPerfil" />
+			<forward name="exitoModificacion" path="exitoModPermisosUsuario" />
+			<forward name="cancelar" path="/permisosUsuario.do?do=inicio" />
+		</action>
+		<action path="/eliminarPerfil" scope="request"
+			type="neology.vc.actions.permisos.GestionPermisosDeUsuarioAction"
+			parameter="do" name="GenerarPermisosUsuarioForm" validate="true"
+			input="permisosUsuario">
+			<forward name="exitoEliminar" path="exitoModPermisosUsuario" />
+		</action>
+		
+			<!-- Sistema -->
+		<action path="/cambiarNombreUsuario"
+			type="neology.vc.actions.sistema.CambiarNombreUsuarioAction" name="cambiarNombreUsuarioForm"
+			scope="request" parameter="do" validate="true" input="cambiarNombreUsuario">
+			<forward name="inicio" path="cambiarNombreUsuario" />
+			<forward name="cancelar" path="bienvenido" redirect="true" />
+			<forward name="mensaje" path="mensajeCambiarUsuario"
+				redirect="true" />
+		</action>
+		
+		<action path="/configuracionHistorico"
+			type="neology.vc.actions.sistema.ConfiguracionHistoricoAction" name="configuracionHistoricoForm"
+			scope="request" parameter="do" validate="true" input="configuracionHistorico">
+			<forward name="inicio" path="configuracionHistorico" />
+			<forward name="guardar" path="configuracionHistoricoGuardar" />
+			<forward name="mensaje" path="mensajeConfiguracionHistorico" />
+			<forward name="eliminar" path="configuracionHistoricoEliminar" />	
+		</action>
+		
+	</action-mappings>
+	<controller
+		processorClass="org.apache.struts.tiles.TilesRequestProcessor"
+		bufferSize="4096" />
+	<!-- ===================================== Configuracion de Recursos -->
+	<message-resources
+		parameter="neology.recursos.ApplicationResources" />
+
+	<!-- ===================================== Tiles Definition -->
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-parser-validate"
+			value="true" />
+	</plug-in>
+
+	<!-- ===================================== Validador 
+		<plug-in  className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property  property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+		</plug-in>  
+		
+	-->
+</struts-config>
